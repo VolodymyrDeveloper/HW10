@@ -1,9 +1,6 @@
 package com.cursor;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -24,7 +21,7 @@ public class Main {
 
         Set<String> setFromPreviousList = list.stream()
                 .map(x -> x.getName() + "-" + x.getGender().toString()
-                        .replaceAll("FEMALE", "f").replaceAll("MALE", "m"))
+                        .substring(0, 1).toLowerCase(Locale.ROOT))
                 .collect(Collectors.toCollection(() -> new HashSet<>()));
 
         setFromPreviousList.forEach(System.out::println);
